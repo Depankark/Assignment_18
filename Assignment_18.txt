@@ -1,0 +1,51 @@
+1)Ans:-
+
+from tkinter import *
+root = Tk()
+frame = Frame(root, bg='skyblue')
+frame.pack()
+scrollbar = Scrollbar(frame)
+scrollbar.pack( side = RIGHT, fill = Y )
+mylist = Listbox(frame, yscrollcommand = scrollbar.set )
+dict={"1":9815869325,"2":9807611250,"3":7310675568,"4":7060874227,"5":7060874229,"6":9807832757,"7":6098765432,"8":9817878597,"9":9844162099,\
+      "10":6744541181 }
+for item in dict:
+    mylist.insert(END,"Key Is : " + str(item))
+    mylist.pack( side = LEFT, fill = BOTH )
+    scrollbar.config( command = mylist.yview )
+mainloop()
+
+
+2)Ans:-
+
+from tkinter import *
+dict= {}
+root = Tk()
+def display():
+    k = e1.get()
+    v = e2.get()
+    dict[k]=v
+    lbl3.configure(text=k)
+    lbl4.configure(text=v)
+    print(dict)
+
+lbl1 = Label(root, text='Key')
+lbl1.grid(row=0, column=0)
+lbl2 = Label(root, text='Value')
+lbl2.grid(row=1, column=0)
+
+e1 = Entry(root)
+e1.grid(row=0, column=1)
+
+e2 = Entry(root)
+e2.grid(row=1, column=1)
+
+add = Button(root, text='ADD IT', command = display)
+add.grid(row=2, column=1)
+
+lbl3 = Label(root)
+lbl3.grid(row=3, column=0)
+
+lbl4 = Label(root)
+lbl4.grid(row=3, column=1)
+root.mainloop()
